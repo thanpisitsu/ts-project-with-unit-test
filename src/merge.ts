@@ -5,13 +5,11 @@ export function merge(collection_1: number[], collection_2: number[], collection
     let k = 0;
 
     while (i < collection_1.length || j >= 0 || k < collection_3.length) {
-        let val1 = i < collection_1.length ? collection_1[i] : Infinity;
-        let val2 = j >= 0 ? collection_2[j] : Infinity;
-        let val3 = k < collection_3.length ? collection_3[k] : Infinity;
+        const val1 = i < collection_1.length ? collection_1[i]! : Infinity;
+        const val2 = j >= 0 ? collection_2[j]! : Infinity;
+        const val3 = k < collection_3.length ? collection_3[k]! : Infinity;
 
-        let min = val1;
-        if (val2 < min ) min = val2;
-        if (val3 < min ) min = val3;
+        const min = Math.min(val1, val2, val3);
 
         if (min === val1) {
             result.push(val1);
@@ -26,4 +24,4 @@ export function merge(collection_1: number[], collection_2: number[], collection
     }
 
     return result;
-}
+};
